@@ -19,6 +19,7 @@ strings.shift(); // O(n)
 
 // adding item at any position
 
-strings.splice(2, 0, "x");
+strings.splice(2, 0, "x"); // O(n)`
 
 console.log(arr);
+``;
