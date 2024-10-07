@@ -4,15 +4,19 @@ class MyArray {
     this.data = {};
   }
 
+  // O(1)
   get(index) {
     return this.data[index];
   }
 
+  // O(1)
   push(value) {
     this.data[this.length] = value;
     this.length++;
     return this.length;
   }
+
+  // O(1)
   pop() {
     if (this.length === 0) return undefined;
     const lastItem = this.data[this.length - 1];
@@ -20,7 +24,7 @@ class MyArray {
     this.data.length--;
     return lastItem;
   }
-
+  // O(n)
   delete(index) {
     const item = this.data[index];
     this.shiftItems(index);
