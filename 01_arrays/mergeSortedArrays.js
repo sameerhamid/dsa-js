@@ -2,24 +2,26 @@ function mergeSortedItems(arr1, arr2) {
   const mergedArr = [];
   let i = 0;
   let j = 0;
-  let array1Item = arr1[0];
-  let array2Item = arr2[0];
 
-  while (arr1 || arr2) {
-    if (!array2Item || array1Item < array2Item) {
-      mergedArr.push(array1Item);
-      array1Item = arr1[i];
+  if (arr2.length === 0) {
+    return arr1;
+  }
+  if (arr1.length === 0) {
+    return arr2;
+  }
+
+  while (arr1.length > i || arr2.length > j) {
+    if (arr1[i] <= arr2[j]) {
+      mergedArr.push(arr1[i]);
       i++;
     } else {
-      mergedArr.push(array2Item);
-      array2Item = arr2[j];
+      mergedArr.push(arr2[j]);
       j++;
     }
   }
-
   return mergedArr;
 }
 
-const arr1 = [1, 3, 5, 7];
-const arr2 = [2, 4, 6, 8];
-console.log(mergeSortedItems(arr1, arr2)); // [1, 2, 3, 4, 5, 6, 7, 8]
+const arr1 = [2, 3, 5, 7, 8];
+const arr2 = [-22, -4, 6, 8];
+console.log(mergeSortedItems(arr1, arr2));
